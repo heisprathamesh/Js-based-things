@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <section class="sec1">
+        <div class="field1"></div>
+
+        <div class="box">
+            <input type="text" id="in1" class="input" placeholder='type msg here'>
+            <button class="send">Send></button>
+        </div>
+    </section>
+
+    <script>
+
+        let send=()=>{
+            var text = document.getElementById("in1").value;
+
+            let field = document.getElementsByClassName("field1")[0];
+
+            let textbox = document.createElement("div");
+            textbox.setAttribute("class","tbox");
+            textbox.innerHTML = text;
+
+            field.appendChild(textbox);
+
+            document.getElementById("in1").value="";
+            document.getElementById("in1").focus()
+
+
+        }
+
+        document.querySelector(".send").addEventListener("click",send);
+        document.getElementById("in1").addEventListener("keydown",()=>{
+            if(event.key==="Enter"){
+                send();
+            }
+        })
+
+        var fields = document.getElementsByClassName("field1")[0];
+        fields.scrollTop= fields.scrollHeight;
+       
+    </script>
+</body>
+</html>

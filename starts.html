@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #1d1e22;
+            cursor: none;
+            height: 100vh;
+        }
+        .rounded{
+            width: 30px;
+            height: 30px;
+            border: 2px solid #ff0000;
+            background-color: #ff0000;
+            border-radius: 50%;
+
+        }
+        .pointed{
+            width: 7px;
+            height: 7px;
+            background-color: #ffffff;
+            border-radius: 50%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class=" cursor rounded"></div>
+    <div class=" cursor pointed"></div>
+
+
+    <script>
+        const rounded = document.querySelector(".rounded");
+        const pointed = document.querySelector(".pointed");
+
+        let movecursor=(x)=>{
+            const mouseY= x.clientY;
+            const mouseX = x.clientX;
+
+            rounded.style.transform = `translate3d(${mouseX}px, ${mouseY}px , 0)`;
+            pointed.style.transform = `translate3d(${mouseX}px, ${mouseY}px , 0)`;
+
+        }
+
+        window.addEventListener("mousemove",movecursor);
+
+    </script>
+</body>
+</html>
+
